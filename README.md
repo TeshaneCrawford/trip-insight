@@ -1,37 +1,46 @@
 # Trip Insight
+
 ## Overview
+
 This project is a trip insight application. As the name suggest, Trip Insight will give users the luxury of getting information on their next trip to ensure a great experience. Trip insight is a web application that allows users to search and book cheap but great flights, hotels, holiday packages and car rental.
 
- 
-# Problem
+## Problem
+
 People like to travel, people love to travel, and people want to travel. However traveling costs money, and people don't want to spend that money. Everyone however loves a discounted offer. With Trip Insight, people will be able to search for the best affordable trip to suit their style.
 
-# Solution
+## Solution
+
 Trip Insight will provide users the best possible solution to their travel needs.
 
-# Technologies Used ( Tech Stack - N/A )
+## Technologies Used ( Tech Stack - N/A )
+
 Trip Insight is a web application that uses the following technologies:
-## Frontend
+
+### Frontend
+
 - **Next.Js**
-        
-    - CSS Modules
 
-    - Axios
+  - CSS Modules
 
-    - Context API
+  - Axios
 
-## Backend
+  - Context API
+
+### Backend
+
 - **GraphQL**
-    - Auth0
+  - Auth0
 
 - **PostgreSQL**
-    - Prisma
+  - Prisma
 
 - **Storage**
-    - AWS S3
+  - AWS S3
 
-# Roadmap
-## Features
+## Roadmap
+
+### Features
+
     . Search for flights, hotels, car rentals, and holiday packages
 
     . Book flights, hotels, car rentals, and holiday packages
@@ -54,15 +63,16 @@ Trip Insight is a web application that uses the following technologies:
 
     . Users will be able to chat with us and get assistance if needed via our email providers and chatbots
 
-## Todos
+### Todos
+
 - Tasks
-    - Add a chatbot to the application
-    - Add a payment gateway to the application
-    - Add an email provider to the application
-    - Add a database to the application
-    - Add authentication and authorization to the application
-#
+  - Add a chatbot to the application
+  - Add a payment gateway to the application
+  - Add an email provider to the application
+  - Add a database to the application
+  - Add authentication and authorization to the application
+
 ## Known Bugs
-#
+
 []: # Language: markdown
 []: # Path: README.md
