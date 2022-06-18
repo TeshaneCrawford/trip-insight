@@ -1,82 +1,34 @@
-# Trip Insight
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Overview
+## Getting Started
 
-This project is a trip insight application. As the name suggest, Trip Insight will give users the luxury of getting information on their next trip to ensure a great experience. Trip insight is a web application that allows users to search and book cheap but great flights, hotels, holiday packages and car rental.
+First, run the development server:
 
-## Problem
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-People like to travel, people love to travel, and people want to travel. However traveling costs money, and people don't want to spend that money. Everyone however loves a discounted offer. With Trip Insight, people will be able to search for the best affordable trip to suit their style.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Solution
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-Trip Insight will provide users the best possible solution to their travel needs.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-## Technologies Used ( Tech Stack - N/A )
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-Trip Insight is a web application that uses the following technologies:
+## Learn More
 
-### Frontend
+To learn more about Next.js, take a look at the following resources:
 
-#### Next.Js
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- CSS Modules
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-- Axios
+## Deploy on Vercel
 
-- Context API
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Backend
-
-#### GraphQL
-
-- Auth0
-
-#### PostgreSQL
-
-- Prisma
-
-#### Storage
-
-- AWS S3
-
-## Roadmap
-
-### Features
-
-- Search for flights, hotels, car rentals, and holiday packages
-
-- Book flights, hotels, car rentals, and holiday packages
-
-- View and manage your bookings
-
-- View and manage your profile
-
-- Unregistered Users can enjoy all features except for booking
-
-- Checkout and pay for your bookings
-
-- Sign up, login and logout for registered users
-
-- Users will be given pricing in various currencies
-
-- Users will be notified via email when their bookings and settings are confirmed
-
-- allows users to create an account, gives them access to their account, and allows them to update their account information. eg. email, password, name, address, viewing bookings, saving payment details etc
-
-- Users will be able to chat with us and get assistance if needed via our email providers and chatbots
-
-### Technical Roadmap
-
-#### Tasks
-
-- Add a chatbot to the application
-- Add a payment gateway to the application
-- Add an email provider to the application
-- Add a database to the application
-- Add authentication and authorization to the application
-
-## Known Bugs
-
-[]: # Language: markdown
-[]: # Path: README.md
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
