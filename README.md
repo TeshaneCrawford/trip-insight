@@ -18,59 +18,63 @@ Trip Insight is a web application that uses the following technologies:
 
 ### Frontend
 
-- **Next.Js**
+#### Next.Js
 
-  - CSS Modules
+- CSS Modules
 
-  - Axios
+- Axios
 
-  - Context API
+- Context API
 
 ### Backend
 
-- **GraphQL**
-  - Auth0
+#### GraphQL
 
-- **PostgreSQL**
-  - Prisma
+- Auth0
 
-- **Storage**
-  - AWS S3
+#### PostgreSQL
+
+- Prisma
+
+#### Storage
+
+- AWS S3
 
 ## Roadmap
 
 ### Features
 
-    . Search for flights, hotels, car rentals, and holiday packages
+- Search for flights, hotels, car rentals, and holiday packages
 
-    . Book flights, hotels, car rentals, and holiday packages
+- Book flights, hotels, car rentals, and holiday packages
 
-    . View and manage your bookings
+- View and manage your bookings
 
-    . View and manage your profile
+- View and manage your profile
 
-    . Unregistered Users can enjoy all features except for booking
+- Unregistered Users can enjoy all features except for booking
 
-    . Checkout and pay for your bookings
+- Checkout and pay for your bookings
 
-    . Sign up, login and logout for registered users
+- Sign up, login and logout for registered users
 
-    . Users will be given pricing in various currencies
+- Users will be given pricing in various currencies
 
-    . Users will be notified via email when their bookings and settings are confirmed
+- Users will be notified via email when their bookings and settings are confirmed
 
-    . allows users to create an account, gives them access to their account, and allows them to update their account information. eg. email, password, name, address, viewing bookings, saving payment details etc
+- allows users to create an account, gives them access to their account, and allows them to update their account information. eg. email, password, name, address, viewing bookings, saving payment details etc
 
-    . Users will be able to chat with us and get assistance if needed via our email providers and chatbots
+- Users will be able to chat with us and get assistance if needed via our email providers and chatbots
 
-### Todos
+### Technical Roadmap
 
-- Tasks
-  - Add a chatbot to the application
-  - Add a payment gateway to the application
-  - Add an email provider to the application
-  - Add a database to the application
-  - Add authentication and authorization to the application
+#### Tasks
+
+- Add a chatbot to the application
+- Add a payment gateway to the application
+- Add an email provider to the application
+- Add a database to the application
+- Add authentication and authorization to the application
 
 ## Known Bugs
 
