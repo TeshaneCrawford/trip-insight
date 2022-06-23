@@ -1,0 +1,111 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Link {
+    id          String   @id @default(uuid())
+    index       Int      @default(autoincrement())
+    title       String
+    description String
+    url         String
+    imageUrl    String
+    category    String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    users       User[]
+}
+
+model User {
+    id        String   @id @default(uuid())
+    email     String?  @unique
+    phone     String?  @unique
+    password  String?
+    identity  String?  @unique
+    image     String?
+    country   String?
+    city      String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    favorites Link[]
+    role      Role     @default(USER)
+    Hotel     Hotel?
+    Booking   Booking?
+    Profile   Profile?
+}
+
+enum Role {
+    USER
+    ADMIN
+}
+
+model Profile {
+    id     String @id @default(uuid())
+    user   User   @relation(fields: [userId], references: [id])
+    userId String @unique
+}
+
+model Booking {
+    id        String    @id @default(uuid())
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    user      User      @relation(fields: [userId], references: [id])
+    userId    String    @unique
+    room      Room[]
+    transit   Transit[]
+}
+
+model Hotel {
+    id          String   @id @default(uuid())
+    name        String
+    description String
+    imageUrl    String
+    category    String
+    city        String
+    address     String
+    title       String   @db.VarChar(255)
+    image       String
+    rating      Float
+    lowestPrice Float
+    featured    Boolean
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    user        User     @relation(fields: [userId], references: [id])
+    userId      String   @unique
+    room        Room[]
+}
+
+model Room {
+    id          String   @id @default(uuid())
+    name        String
+    description String
+    price       Int
+    maxGuests   Int
+    category    String
+    timestamp   DateTime @default(now())
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    Booking     Booking? @relation(fields: [bookingId], references: [id])
+    bookingId   String?
+    Hotel       Hotel    @relation(fields: [hotelId], references: [id])
+    hotelId     String   @unique
+}
+
+model Transit {
+    id          String   @id @default(uuid())
+    name        String
+    description String
+    category    String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    Booking     Booking? @relation(fields: [bookingId], references: [id])
+    bookingId   String?
+}
+
+model Payment {
+    id String @id @default(uuid())
+}
