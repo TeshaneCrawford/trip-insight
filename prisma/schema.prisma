@@ -36,6 +36,7 @@ model User {
     Hotel     Hotel?
     Booking   Booking?
     Profile   Profile?
+    Review    Review?
 }
 
 enum Role {
@@ -108,4 +109,14 @@ model Transit {
 
 model Payment {
     id String @id @default(uuid())
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  rating    Int
+  comment   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
 }
