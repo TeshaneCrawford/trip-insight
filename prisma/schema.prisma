@@ -1,114 +1,149 @@
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 model Link {
-    id          String   @id @default(uuid())
-    index       Int      @default(autoincrement())
-    title       String
-    description String
-    url         String
-    imageUrl    String
-    category    String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    users       User[]
+  id          String   @id @default(uuid())
+  index       Int      @default(autoincrement())
+  title       String
+  description String
+  url         String
+  imageUrl    String
+  category    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  users       User[]
 }
 
 model User {
-    id        String   @id @default(uuid())
-    email     String?  @unique
-    phone     String?  @unique
-    password  String?
-    identity  String?  @unique
-    image     String?
-    country   String?
-    city      String?
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    favorites Link[]
-    role      Role     @default(USER)
-    Hotel     Hotel?
-    Booking   Booking?
-    Profile   Profile?
-    Review    Review?
+  id        String   @id @default(uuid())
+  email     String?  @unique
+  phone     String?  @unique
+  password  String?
+  identity  String?  @unique
+  image     String?
+  country   String?
+  city      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  favorites Link[]
+  role      Role     @default(USER)
+  Hotel     Hotel?
+  Booking   Booking?
+  Profile   Profile?
+  Review    Review?
+
+  Payment Payment[]
 }
 
 enum Role {
-    USER
-    ADMIN
+  USER
+  ADMIN
 }
 
 model Profile {
-    id     String @id @default(uuid())
-    user   User   @relation(fields: [userId], references: [id])
-    userId String @unique
+  id     String @id @default(uuid())
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
 }
 
 model Booking {
-    id        String    @id @default(uuid())
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
-    user      User      @relation(fields: [userId], references: [id])
-    userId    String    @unique
-    room      Room[]
-    transit   Transit[]
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String    @unique
+  room      Room[]
+  transit   Transit[]
 }
 
 model Hotel {
-    id          String   @id @default(uuid())
-    name        String
-    description String
-    imageUrl    String
-    category    String
-    city        String
-    address     String
-    title       String   @db.VarChar(255)
-    image       String
-    rating      Float
-    lowestPrice Float
-    featured    Boolean
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    user        User     @relation(fields: [userId], references: [id])
-    userId      String   @unique
-    room        Room[]
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  imageUrl    String
+  category    String
+  city        String
+  address     String
+  title       String   @db.VarChar(255)
+  image       String
+  rating      Float
+  lowestPrice Float
+  featured    Boolean
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   @unique
+  room        Room[]
 }
 
 model Room {
-    id          String   @id @default(uuid())
-    name        String
-    description String
-    price       Int
-    maxGuests   Int
-    category    String
-    timestamp   DateTime @default(now())
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    Booking     Booking? @relation(fields: [bookingId], references: [id])
-    bookingId   String?
-    Hotel       Hotel    @relation(fields: [hotelId], references: [id])
-    hotelId     String   @unique
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  price       Int
+  maxGuests   Int
+  category    String
+  timestamp   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  Booking     Booking? @relation(fields: [bookingId], references: [id])
+  bookingId   String?
+  Hotel       Hotel    @relation(fields: [hotelId], references: [id])
+  hotelId     String   @unique
+  media       Media[]
 }
 
+// model Room {
+//   id                 String        @id @default(uuid())
+//   createdAt          DateTime      @default(now())
+//   updatedAt          DateTime      @updatedAt
+//   totalOccupancy     Int           @default(5)
+//   totalBedrooms      Int           @default(5)
+//   totalBathrooms     Int           @default(5)
+//   summary            String?
+//   address            String
+//   isSmoking          Boolean       @default(false)
+//   hasTV              Boolean       @default(true)
+//   hasAirConditioning Boolean       @default(true)
+//   hasHeating         Boolean       @default(true)
+//   hasWIFI            Boolean       @default(true)
+//   price              Int
+//   media              Media[]
+//   reservations       Reservation[]
+// }
+
 model Transit {
-    id          String   @id @default(uuid())
-    name        String
-    description String
-    category    String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    Booking     Booking? @relation(fields: [bookingId], references: [id])
-    bookingId   String?
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  category    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  Booking     Booking? @relation(fields: [bookingId], references: [id])
+  bookingId   String?
 }
 
 model Payment {
-    id String @id @default(uuid())
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @unique
+}
+
+model Media {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  roomId    String?
+  fileName  String
+  room      Room?    @relation(fields: [roomId], references: [id])
 }
 
 model Review {
@@ -117,6 +152,6 @@ model Review {
   updatedAt DateTime @updatedAt
   rating    Int
   comment   String
-  userId    String
+  userId    String   @unique
   user      User     @relation(fields: [userId], references: [id])
 }
